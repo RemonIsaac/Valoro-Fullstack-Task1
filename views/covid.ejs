@@ -1,0 +1,34 @@
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="api content">
+      <h2>Covid data</h2>
+      <div>
+        <table>
+          <tr>
+            <th>country</th>
+            <th>new cases</th>
+            <th>active cases</th>
+            <th>recovered cases</th>
+            <th>total cases</th>
+            <th>total tests</th>
+          </tr>
+          <% for(var i=0; i< data.length;i++){ %>
+          <tr>
+            <td><%= data[i].country %></td>
+            <td><%= data[i].cases.new %></td>
+            <td><%= data[i].cases.active %></td>
+            <td><%= data[i].cases.recovered %></td>
+            <td><%= data[i].cases.total %></td>
+            <td><%= data[i].tests.total %></td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>
